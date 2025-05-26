@@ -1,11 +1,5 @@
 {
-  "projects": [
-    {
-      "src": "Frontend/",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
-    }
-  ]
+  "rootDirectory": "Frontend",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist"
 }
