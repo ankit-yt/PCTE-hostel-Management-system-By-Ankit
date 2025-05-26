@@ -9,7 +9,7 @@ function StudentAttendance({ studentId }) {
     useEffect(() => {
         const fetchAttendance = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/attendance/${studentId}`);
+                const response = await axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/attendance/${studentId}`);
                 setAttendanceRecords(response.data);
             } catch (err) {
                 setError(err.message);

@@ -11,7 +11,7 @@ function Attendance() {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/users?role=student`);
+        const response = await axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/users?role=student`);
         const filtered = response.data.filter((user) => user.role === "student");
         setStudents(filtered);
 
@@ -35,7 +35,7 @@ function Attendance() {
       try {
         const responses = await Promise.all(
           students.map((student) =>
-            axios.get(`http://localhost:5000/api/attendance/today/${student._id}`)
+            axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/attendance/today/${student._id}`)
           )
         );
         const hasSubmitted = responses.some((res) => res.data.submitted);
@@ -61,10 +61,10 @@ function Attendance() {
         students.map(async (student) => {
           const status = attendanceStatus[student._id];
           const res = await axios.get(
-            `http://localhost:5000/api/attendance/${student._id}/${date}`
+            `https://pcte-hostel-management-system-by-ankit.onrender.com/api/attendance/${student._id}/${date}`
           );
           if (res.data.length === 0) {
-            await axios.post(`http://localhost:5000/api/attendance`, {
+            await axios.post(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/attendance`, {
               studentId: student._id,
               date,
               status,
@@ -85,7 +85,7 @@ function Attendance() {
       await Promise.all(
         students.map(async (student) => {
           const res = await axios.get(
-            `http://localhost:5000/api/attendance/${student._id}/${date}`
+            `https://pcte-hostel-management-system-by-ankit.onrender.com/api/attendance/${student._id}/${date}`
           );
           if (res.data.length > 0) {
             setAttendanceStatus((prev) => ({
@@ -106,11 +106,11 @@ function Attendance() {
       await Promise.all(
         students.map(async (student) => {
           const res = await axios.get(
-            `http://localhost:5000/api/attendance/${student._id}/${date}`
+            `https://pcte-hostel-management-system-by-ankit.onrender.com/api/attendance/${student._id}/${date}`
           );
           if (res.data.length > 0) {
             const id = res.data[0]._id;
-            await axios.put(`http://localhost:5000/api/attendance/${id}`, {
+            await axios.put(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/attendance/${id}`, {
               status: attendanceStatus[student._id],
             });
           }

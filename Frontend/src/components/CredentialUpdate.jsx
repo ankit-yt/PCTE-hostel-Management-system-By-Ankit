@@ -40,7 +40,7 @@ function CredentialUpdate({ userEditData, CloseUpdate ,finalClosureOfUpdateForm,
     const fetchRooms = async () => {
       if (userData.hostel) {
         try {
-          const response = await axios.get(`http://localhost:5000/api/rooms/`, {
+          const response = await axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms/`, {
             params: { hostel: userData.hostel },
           });
           const filteredRooms = response.data.filter(
@@ -86,7 +86,7 @@ function CredentialUpdate({ userEditData, CloseUpdate ,finalClosureOfUpdateForm,
     }
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/users/`,
+        `https://pcte-hostel-management-system-by-ankit.onrender.com/api/users/`,
         formData,
         {
           headers: {

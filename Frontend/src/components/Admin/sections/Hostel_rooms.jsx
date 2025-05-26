@@ -33,7 +33,7 @@ function Hostel_rooms({ isDarkTheme }) {
 
   const fetchRooms = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/rooms`);
+      const response = await axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms`);
       setRooms(response.data);
       console.log(response.data);
 
@@ -66,7 +66,7 @@ function Hostel_rooms({ isDarkTheme }) {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/rooms/UpdateStuRoom/${transferData.roomId}/student/${transferData.studentId}`
+        `https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms/UpdateStuRoom/${transferData.roomId}/student/${transferData.studentId}`
       );
 
       if (response.status === 200) {
@@ -87,7 +87,7 @@ function Hostel_rooms({ isDarkTheme }) {
     console.log(transferData);
     setTransfer(true);
     const response = await axios.get(
-      `http://localhost:5000/api/rooms/availableRoom`
+      `https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms/availableRoom`
     );
     setAvailableRooms(response.data);
     console.log(availableRooms);
@@ -117,13 +117,13 @@ function Hostel_rooms({ isDarkTheme }) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/rooms`,
+        `https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms`,
         newRoom
       );
       setRooms([...rooms, response.data]);
       setNewRoom({ roomNumber: "", capacity: "", hostel: "" });
       setTimeout( async () => {
-        const newresponse = await axios.get(`http://localhost:5000/api/rooms`);
+        const newresponse = await axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms`);
         setRooms(newresponse.data);
         setIsAddingNewRoom(false)
         setLoading(false)
@@ -140,7 +140,7 @@ function Hostel_rooms({ isDarkTheme }) {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/rooms/${editRoom._id}`,
+        `https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms/${editRoom._id}`,
         {
           roomNumber: editRoom.roomNumber,
           capacity: editRoom.capacity,
@@ -159,10 +159,10 @@ function Hostel_rooms({ isDarkTheme }) {
   const deleteRoom = async (roomId) => {
     setLoading(true)
     try {
-      await axios.delete(`http://localhost:5000/api/rooms/${roomId}`);
+      await axios.delete(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms/${roomId}`);
       setRooms(rooms.filter((room) => room._id !== roomId));
       setTimeout( async () => {
-        const newresponse = await axios.get(`http://localhost:5000/api/rooms`);
+        const newresponse = await axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms`);
         setRooms(newresponse.data);
         setIsAddingNewRoom(false)
        
@@ -197,7 +197,7 @@ function Hostel_rooms({ isDarkTheme }) {
 
   // const transfer = async (roomId, studentId) => {
   //     try {
-  //         const response = await axios.put(`http://localhost:5000/api/UpdateStuRoom/${roomId}/student/${studentId}`);
+  //         const response = await axios.put(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/UpdateStuRoom/${roomId}/student/${studentId}`);
 
   //     }
   //     catch (err) {
@@ -216,7 +216,7 @@ function Hostel_rooms({ isDarkTheme }) {
 
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/users/StudentAccToRoom/${roomId}`
+        `https://pcte-hostel-management-system-by-ankit.onrender.com/api/users/StudentAccToRoom/${roomId}`
       );
       setStudents(response.data);
       console.log(response.data);
@@ -229,7 +229,7 @@ function Hostel_rooms({ isDarkTheme }) {
   const deleteStudent = async (roomId, studentId) => {
     try {
       await axios.delete(
-        `http://localhost:5000/api/rooms/${roomId}/students/${studentId}`
+        `https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms/${roomId}/students/${studentId}`
       );
       setStudents(students.filter((student) => student._id !== studentId));
     } catch (err) {
@@ -250,7 +250,7 @@ function Hostel_rooms({ isDarkTheme }) {
     if (selectedRoom) {
       try {
         const response = await axios.post(
-          `http://localhost:5000/api/rooms/${selectedRoom}/students`,
+          `https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms/${selectedRoom}/students`,
           newStudent
         );
         setStudents([

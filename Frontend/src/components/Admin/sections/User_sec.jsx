@@ -26,7 +26,7 @@ function User_sec({ isDarkTheme }) {
     const fetchUsers = async () => {
         try {
           console.log("fetchUsers called")
-        const response = await axios.get(`http://localhost:5000/api/users`);
+        const response = await axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/users`);
             
             setUsers(response.data);
             
@@ -64,7 +64,7 @@ function User_sec({ isDarkTheme }) {
   const handleDelete = async (userId) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
       try {
-        await axios.delete(`http://localhost:5000/api/users/${userId}`);
+        await axios.delete(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/users/${userId}`);
         setUsers((prev) => prev.filter((user) => user._id !== userId));
       } catch (err) {
         setError(err.message);

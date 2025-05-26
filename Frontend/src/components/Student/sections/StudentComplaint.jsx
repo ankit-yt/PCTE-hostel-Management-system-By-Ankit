@@ -30,7 +30,7 @@ function StudentComplaint({ studentName, studentRoom, isDarkTheme }) {
     useEffect(() => {
         const fetchComplaints = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/complaints`);
+                const response = await axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/complaints`);
                 setComplaints(response.data);
                 setLoading(false);
             } catch (err) {
@@ -45,7 +45,7 @@ function StudentComplaint({ studentName, studentRoom, isDarkTheme }) {
     const handleSubmitComplaint = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`http://localhost:5000/api/complaints`, {
+            const response = await axios.post(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/complaints`, {
                 studentName,
                 complaintText: newComplaint,
             });

@@ -31,7 +31,7 @@ function Register() {
     const fetchRooms = async () => {
       if (userData.hostel) {
         try {
-          const response = await axios.get(`http://localhost:5000/api/rooms`, {
+          const response = await axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/rooms`, {
             params: { hostel: userData.hostel },
           });
           const filteredRooms = response.data.filter(
@@ -76,7 +76,7 @@ function Register() {
     }
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/users/`,
+        `https://pcte-hostel-management-system-by-ankit.onrender.com/api/users/`,
         formData,
         {
           headers: {

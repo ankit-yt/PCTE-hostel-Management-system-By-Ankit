@@ -12,7 +12,7 @@ function StudentProfile({ studentId }) {
     useEffect(() => {
         const fetchStudentData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/users/${studentId}`);
+                const response = await axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/users/${studentId}`);
                 setStudentData(response.data);
             } catch (err) {
                 setError(err.response ? err.response.data.message : err.message);

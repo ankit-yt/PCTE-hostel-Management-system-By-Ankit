@@ -4,7 +4,7 @@ import axios from 'axios';
 import { io } from 'socket.io-client';
 import { motion } from 'framer-motion';
 
-const socket = io(`http://localhost:5000`);
+const socket = io(`https://pcte-hostel-management-system-by-ankit.onrender.com`);
 
 function Announcements() {
     const [announcements, setAnnouncements] = useState([]);
@@ -13,7 +13,7 @@ function Announcements() {
     useEffect(() => {
         const fetchAnnouncements = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/announcements`);
+                const response = await axios.get(`https://pcte-hostel-management-system-by-ankit.onrender.com/api/announcements`);
                 setAnnouncements(response.data);
             } catch (error) {
                 console.error("Error fetching announcements:", error);
